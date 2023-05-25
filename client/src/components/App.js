@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { Switch, Route } from 'react-router-dom';
+import SignUp from "./SignUp";
+import NavBar from "./NavBar";
 import Header from "./Header";
 import Login from "./Login";
+import Home from "./Home";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -14,9 +17,6 @@ function App() {
     });
   }, []);
 
-  function handleLogin(user) {
-    setUser(user);
-  }
 
   function handleLogout() {
     setUser(null);
@@ -25,11 +25,24 @@ function App() {
   return (
     <div className="App">
       <Header user={user} onLogout={handleLogout} />
-      <Switch>
-        <Route exact path="/login">
-          <Login onLogin={handleLogin} />
-        </Route>
-      </Switch>
+      <NavBar user={user} setUser={setUser}/>
+      {user ? (
+        <Switch>
+          <Home/>
+        </Switch>
+        ) : (
+        <Switch>
+          <Route exact path="/signup">
+            <SignUp setUser={setUser}/>
+          </Route>
+          <Route exact path="/login">
+            <Login setUser={setUser} />
+          </Route>
+          <Route>
+            <Home/>
+          </Route>
+        </Switch>
+        )}
     </div>
   );
 }

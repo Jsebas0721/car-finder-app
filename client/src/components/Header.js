@@ -10,16 +10,16 @@ function Header({ user, onLogout }) {
   return (
     <header>
       <h1>
-        <Link to="/">Lorem Blogum</Link>
+        <Link to="/">Car Finder App</Link>
       </h1>
-      {user ? (
+      {/* {user ? (
         <div>
           <p>Welcome, {user.username}!</p>
           <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (
         <Link to="/login">Click Here to Login</Link>
-      )}
+      )} */}
     </header>
   );
 }
