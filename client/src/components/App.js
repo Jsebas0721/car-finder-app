@@ -24,11 +24,13 @@ function App() {
 
   return (
     <div className="App">
-      <Header user={user} onLogout={handleLogout} />
+      <Header user={user} />
       <NavBar user={user} setUser={setUser}/>
       {user ? (
         <Switch>
-          <Home/>
+          <Route>
+            <Home/>
+          </Route>
         </Switch>
         ) : (
         <Switch>

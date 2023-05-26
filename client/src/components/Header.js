@@ -1,25 +1,22 @@
 import { Link } from "react-router-dom";
 
-function Header({ user, onLogout }) {
-  function handleLogout() {
-    fetch("/logout", {
-      method: "DELETE",
-    }).then(() => onLogout());
-  }
+function Header({ user }) {
+  // function handleLogout() {
+  //   fetch("/logout", {
+  //     method: "DELETE",
+  //   }).then(() => onLogout());
+  // }
 
   return (
     <header>
       <h1>
         <Link to="/">Car Finder App</Link>
       </h1>
-      {/* {user ? (
-        <div>
-          <p>Welcome, {user.username}!</p>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
+      {user ? (
+        <p>Welcome, {user.username}</p>
       ) : (
-        <Link to="/login">Click Here to Login</Link>
-      )} */}
+        <p>Please Log in</p>
+      )}
     </header>
   );
 }
