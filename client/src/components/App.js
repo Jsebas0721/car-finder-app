@@ -18,18 +18,14 @@ function App() {
   }, []);
 
 
-  function handleLogout() {
-    setUser(null);
-  }
-
   return (
     <div className="App">
-      <Header user={user} />
+      <Header user={user}/>
       <NavBar user={user} setUser={setUser}/>
       {user ? (
         <Switch>
-          <Route>
-            <Home/>
+          <Route path="/me">
+            
           </Route>
         </Switch>
         ) : (
@@ -40,11 +36,9 @@ function App() {
           <Route exact path="/login">
             <Login setUser={setUser} />
           </Route>
-          <Route>
-            <Home/>
-          </Route>
         </Switch>
         )}
+      <Home/>
     </div>
   );
 }

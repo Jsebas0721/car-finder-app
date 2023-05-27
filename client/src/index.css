@@ -1,13 +1,41 @@
 body {
   margin: 0;
+ 
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-image: url("https://e0.pxfuel.com/wallpapers/208/146/desktop-wallpaper-car-brand-logos-and-names-list-list-sports-car-brands-thumbnail.jpg");
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.app-header {
+  background-color: black;
+  color: azure;
+  text-align: center;
+  margin-top: -0.6cm;
+  margin-bottom: -0.6cm;
+  
+}
+.app-header h3 {
+  color: rgb(170, 82, 0);
+}
+
+.nav-bar {
+  background-color: black;
+  line-height: 30px;
+  margin-top: -0.6cm;
+  margin-bottom: -0.6cm;
+}
+
+.login, .signup {
+  background-color: black;
+  color: beige;
+}
+
