@@ -5,6 +5,7 @@ import NavBar from "./NavBar";
 import Header from "./Header";
 import Login from "./Login";
 import Home from "./Home";
+import DealerList from "./DealerList";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -23,22 +24,21 @@ function App() {
       <Header user={user}/>
       <NavBar user={user} setUser={setUser}/>
       {user ? (
-        <Switch>
-          <Route path="/me">
-            
-          </Route>
-        </Switch>
+          <DealerList/>
         ) : (
         <Switch>
           <Route exact path="/signup">
             <SignUp setUser={setUser}/>
+            <Home/>
           </Route>
           <Route exact path="/login">
-            <Login setUser={setUser} />
+            <Login setUser={setUser} /> 
+            <Home/>
           </Route>
+          <Home/>
         </Switch>
         )}
-      <Home/>
+        
     </div>
   );
 }

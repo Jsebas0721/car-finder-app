@@ -6,36 +6,82 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  background-image: url("https://e0.pxfuel.com/wallpapers/208/146/desktop-wallpaper-car-brand-logos-and-names-list-list-sports-car-brands-thumbnail.jpg");
+  
+  /* background-image: url("https://e0.pxfuel.com/wallpapers/208/146/desktop-wallpaper-car-brand-logos-and-names-list-list-sports-car-brands-thumbnail.jpg"); */
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+    
 }
 
 .app-header {
   background-color: black;
   color: azure;
-  text-align: center;
-  margin-top: -0.6cm;
-  margin-bottom: -0.6cm;
+  /* margin-top: -0.6cm;
+  margin-bottom: -0.6cm; */
+  padding: 1px;
+  border: 1px;
   
 }
+
+.app-header h1 {
+  text-align: center;
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 40px;
+  letter-spacing: 0px;
+  word-spacing: 0px;
+  color: #f8f7f7;
+  font-weight: 700;
+  text-decoration: underline solid rgb(241, 218, 6);
+  font-style: italic;
+  font-variant: small-caps;
+  text-transform: none;
+}
 .app-header h3 {
-  color: rgb(170, 82, 0);
+  color:  rgb(241, 218, 6);
+  text-align: right;
+  margin-right: 10px;
+  text-shadow: 5px 5px 10px  rgb(241, 218, 6);
+  
 }
 
 .nav-bar {
   background-color: black;
-  line-height: 30px;
-  margin-top: -0.6cm;
-  margin-bottom: -0.6cm;
+  /* line-height: 30px; */
+  border:1px; 
+  padding:1px;
+}
+
+.buttons-logs {
+ text-align: right;
+ word-spacing: 20px;
 }
 
 .login, .signup {
   background-color: black;
   color: beige;
+  border:1px; 
+  padding:1px;
 }
+
+.dealer-container {
+  background: linear-gradient(180deg, #000 29%,  rgb(241, 218, 6)) no-repeat;
+  color:white;
+  margin: 0px;
+  padding: 1px;
+  border:1px;
+}
+.dealer-card {
+  display:inline;
+  color: beige;
+}
+
+.dealer-card img {
+  width: 300px;
+  height: 200px;
+}
+
 

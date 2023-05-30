@@ -6,8 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Dealer.create(name: "Used Auto World" , logo: "https://e7.pngegg.com/pngimages/40/772/png-clipart-car-dealership-alsa-enterprises-motors-used-car-vehicle-car-blue-text.png", location: "45 Main Street, New York, NY 10001");
-Dealer.create(name: "CarDeals", logo: "https://www.clipartmax.com/png/middle/39-396570_8900-car-dealer-logo-png.png", location: "56 Oak Avenue, Chicago, IL 60601" );
-Dealer.create(name: "Champion Auto Sales", logo: "https://image.pngaaa.com/150/321150-middle.png" , location: "453 Elm Street, Los Angeles, CA 90001")
-Dealer.create(name: "Ace Auto Sales", logo: "https://w1.pngwing.com/pngs/367/247/png-transparent-vip-logo-car-car-dealership-used-car-engine-motor-vehicle-service-convertible-red.png", location: "12 Maple Drive, Houston, TX 77001" )
-Dealer.create(name: "Bakwena Motor Sales", logo: "https://www.vhv.rs/dpng/d/577-5777773_car-dealership-car-sale-logo-hd-png-download.png" , location: "4 Cedar lane, Phoenix, FL 85001" )
+Dealer.create(name: "Clark Auto Group" , logo: "https://imagescdn.dealercarsearch.com/DealerImages/20958/saved/b2b0337b.png", location: "45 Main Street, New York, NY 10001");
+Dealer.create(name: "35 Motor Exclusive Cars", logo: "https://images-platform.99static.com/-4TAvF9MUX9S43MUvrgRgtpZWG0=/185x185:1663x1663/500x500/top/smart/99designs-contests-attachments/84/84499/attachment_84499606", location: "56 Oak Avenue, Chicago, IL 60601" );
+Dealer.create(name: "Golden Auto Store", logo: "https://dcassetcdn.com/design_img/3627766/722799/722799_20015073_3627766_3149a611_image.jpg" , location: "453 Elm Street, Los Angeles, CA 90001")
+Dealer.create(name: "I.C.S.R International Car Sales", logo: "https://s.tmimgcdn.com/scr/1200x750/249300/icsr-automotive-car-dealer-logo_249332-original.jpg", location: "12 Maple Drive, Houston, TX 77001" )
+Dealer.create(name: "Showcase Auto Sales", logo: "https://dypdvfcjkqkg2.cloudfront.net/large/2615659-1485.png" , location: "4 Cedar lane, Phoenix, FL 85001" )
+
+puts "Done Seeding"

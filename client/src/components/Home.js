@@ -3,8 +3,8 @@ import React from "react";
 function Home(){
 
     return (
-        <div>
-            {/* <img src="https://www.automatecarsecurity.com/Images/Products/CarFinderIcon_Large.png" alt="Home" /> */}
+        <div>  
+            <img src="https://imagescdn.dealercarsearch.com/dealerimages/1123/20820/fxslide03.jpg" alt="Home" />
         </div>
     )  
 }
