@@ -7,8 +7,10 @@ import Login from "./Login";
 import Home from "./Home";
 import DealerList from "./DealerList";
 
+
 function App() {
   const [user, setUser] = useState(null);
+
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -19,12 +21,17 @@ function App() {
   }, []);
 
 
+
+
   return (
     <div className="App">
       <Header user={user}/>
       <NavBar user={user} setUser={setUser}/>
       {user ? (
+        <div>
+          
           <DealerList/>
+        </div>
         ) : (
         <Switch>
           <Route exact path="/signup">

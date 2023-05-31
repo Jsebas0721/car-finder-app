@@ -7,7 +7,7 @@ function Dealer( { dealer } ){
     console.log(logo);
     return (
         <div className="dealer-card">
-            <img lt="Company logo" src={`${logo}`}/>
+            <img alt="Company logo" src={`${logo}`}/>
             <h3>{name}</h3>
             <p>Location: {location}</p>
         </div>

@@ -60,7 +60,7 @@ code {
  word-spacing: 20px;
 }
 
-.login, .signup {
+.login, .signup, .new-dealer-form {
   background-color: black;
   color: beige;
   border:1px; 
@@ -83,5 +83,6 @@ code {
   width: 300px;
   height: 200px;
 }
+
 
 
