@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   get "/dealers", to: "dealers#index"
   post "/dealers", to: "dealers#create"
+
+  get "/cars", to: "cars#index"
 end

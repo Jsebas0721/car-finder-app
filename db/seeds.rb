@@ -12,7 +12,7 @@ Dealer.create(name: "Golden Auto Store", logo: "https://dcassetcdn.com/design_im
 Dealer.create(name: "I.C.S.R International Car Sales", logo: "https://s.tmimgcdn.com/scr/1200x750/249300/icsr-automotive-car-dealer-logo_249332-original.jpg", location: "12 Maple Drive, Houston, TX 77001" )
 Dealer.create(name: "Showcase Auto Sales", logo: "https://dypdvfcjkqkg2.cloudfront.net/large/2615659-1485.png" , location: "4 Cedar lane, Phoenix, FL 85001" )
 
-
+puts"dealers Seeded "
 Car.create([
     {
         make: "Toyota Camry",
@@ -113,8 +113,6 @@ Car.create([
         price: 75000,
         user_id: 1,
         dealer_id: 4
-    },
-
-
+    }
 ])
-puts "Done Seeding"
+puts "cars Seeded"
