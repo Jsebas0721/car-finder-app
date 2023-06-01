@@ -6,7 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  background-color: black;
   /* background-image: url("https://e0.pxfuel.com/wallpapers/208/146/desktop-wallpaper-car-brand-logos-and-names-list-list-sports-car-brands-thumbnail.jpg"); */
 }
 
@@ -68,21 +68,31 @@ code {
 }
 
 .dealer-container {
-  background: linear-gradient(180deg, #000 29%,  rgb(241, 218, 6)) no-repeat;
+  
   color:white;
   margin: 0px;
   padding: 1px;
   border:1px;
 }
 .dealer-card {
-  display:inline;
+  text-align: center;
   color: beige;
+  border: white solid 1px;
+  padding: 1rem;
+  width: 7cm;
+  height: 7cm;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  box-shadow: 3px 4px 20px rgb(241, 218, 6);
 }
 
-.dealer-card img {
-  width: 300px;
-  height: 200px;
+.dealer-logo {
+  justify-self: center;
+  height: 3cm;
+  width: auto;
 }
+
+
 
 
 
