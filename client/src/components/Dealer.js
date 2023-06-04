@@ -1,14 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-function Dealer( { dealer } ){
+function Dealer( { dealer, onSetCars, onSetCurrentDealer} ){
 
-    const {name, logo, location} = dealer;
+    const {name, logo, location, cars} = dealer;
 
-    console.log(logo);
+    function handleClick(){
+        onSetCurrentDealer(dealer)
+        onSetCars(cars)
+    }
     return (
         <NavLink
         exact to={`/${name}/cars`}
+        onClick={handleClick}
         >
             <div className="dealer-card">
                 <img 

@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Dealer.destroy.all
+Car.destroy.all
 
 Dealer.create(name: "Clark Auto Group" , logo: "https://imagescdn.dealercarsearch.com/DealerImages/20958/saved/b2b0337b.png", location: "45 Main Street, New York, NY 10001");
 Dealer.create(name: "35 Motor Exclusive Cars", logo: "https://images-platform.99static.com/-4TAvF9MUX9S43MUvrgRgtpZWG0=/185x185:1663x1663/500x500/top/smart/99designs-contests-attachments/84/84499/attachment_84499606", location: "56 Oak Avenue, Chicago, IL 60601" );

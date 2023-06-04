@@ -1,11 +1,15 @@
-import React, { useState} from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { UserContext } from "../context/user";
 
-function Login({ setUser }) {
+function Login() {
+
+  const { setUser } = useContext(UserContext);
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError]= useState({});
-
+  console.log(error)
   const history = useHistory(); 
 
   function handleSubmit(e) {
@@ -16,15 +20,17 @@ function Login({ setUser }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ username, password }),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
+    }).then((resp) => {
+      if (resp.ok) {
+        resp.json().then((user) => {
+          setUser(user)
+          history.push("/dealers");
+        });    
       }else{
-        r.json().then((errorData) => setError(errorData.error));
+        resp.json().then((errorData) => setError(errorData.error))
+        
       }
     });
-
-    history.push("/dealers");
   }
 
   return (

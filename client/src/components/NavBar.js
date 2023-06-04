@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink, useHistory } from "react-router-dom";
+import { UserContext } from "../context/user";
 
-function NavBar({ user, setUser }) {
+function NavBar() {
   
+  const { user, setUser } = useContext(UserContext);
+
   const history = useHistory();
+
   const linkStyles = {
     width: "50px",
     padding: "10px",
@@ -17,6 +21,7 @@ function NavBar({ user, setUser }) {
         setUser(null);
       }
     });
+
     history.push("/");
   }
 
@@ -26,7 +31,12 @@ function NavBar({ user, setUser }) {
       <header >
         <div className="buttons-logs">
           {user ? (
-            <button onClick={handleLogoutClick}>Logout</button>
+            <div>
+              <h3>Welcome, {user.username}</h3>
+              <button onClick={handleLogoutClick}>
+              Logout
+              </button>
+            </div>
           ) : (
             <>
               <NavLink 

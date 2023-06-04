@@ -40,24 +40,24 @@ code {
   font-variant: small-caps;
   text-transform: none;
 }
-.app-header h3 {
+
+.nav-bar {
+  background-color: black;
+  border:1px; 
+  padding:1px;
+}
+
+.nav-bar h3 {
   color:  rgb(241, 218, 6);
   text-align: right;
   margin-right: 10px;
   text-shadow: 5px 5px 10px  rgb(241, 218, 6);
   
 }
-
-.nav-bar {
-  background-color: black;
-  /* line-height: 30px; */
-  border:1px; 
-  padding:1px;
-}
-
 .buttons-logs {
  text-align: right;
  word-spacing: 20px;
+ 
 }
 
 .login, .signup, .new-dealer-form {
@@ -91,6 +91,8 @@ code {
   height: 3cm;
   width: auto;
 }
+
+
 
 
 

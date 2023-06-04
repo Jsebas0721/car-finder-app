@@ -2,14 +2,18 @@ import React, { useEffect, useState} from "react";
 import Dealer from "./Dealer";
 import NewDealer from "./NewDealer";
 
-function DealerList(){
+function DealerList({onSetCars, onSetCurrentDealer}){
 
     const [dealers, setDealers]= useState([])
 
     useEffect(()=> {
         fetch("/dealers")
         .then((resp)=> resp.json())
-        .then(dealers => setDealers((dealers)))
+        .then(dealers => {
+            setDealers(dealers)
+            console.log(dealers)
+           
+        })
     },[]);
 
     function handleAddDealer(newDealer){
@@ -18,7 +22,7 @@ function DealerList(){
       }
 
     const dealershipList = dealers.map((dealer)=> (
-        <Dealer key={dealer.id} dealer={dealer}/>
+        <Dealer key={dealer.id} dealer={dealer} onSetCars={onSetCars} onSetCurrentDealer={onSetCurrentDealer}/>
     ))
     return (
         <ul className="dealer-container">

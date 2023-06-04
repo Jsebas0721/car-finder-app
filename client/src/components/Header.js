@@ -1,16 +1,15 @@
 import React from "react";
 
 
-function Header({ user }) {
 
+function Header() {
+
+ 
 
   return (
     <div className="app-header">
       <header >
         <h1>Car Finder </h1>
-        {user && (
-          <h3>Welcome, {user.username}</h3>
-        )}
       </header>
     </div>
   );

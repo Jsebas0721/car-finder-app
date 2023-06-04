@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { UserContext } from "../context/user";
 
-function SignUp({ setUser }) {
+function SignUp() {
+
+  const {setUser} = useContext(UserContext);
+  
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -22,7 +26,7 @@ function SignUp({ setUser }) {
       if (response.ok) {
         response.json().then((user) => setUser(user));
       }else{
-        response.json().then((errorData) => setErrors(errorData.errors))
+        response.json().then((errorData) => setErrors(errorData.errors));
       }
     });
   }
