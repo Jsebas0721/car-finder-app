@@ -103,7 +103,7 @@ code {
   padding: 1rem;
   width: 7cm;
   height: 8cm;
-  display: inline-grid;
+  display: inline-block;
   margin: 1rem 2rem;
   box-shadow: 3px 4px 20px rgb(241, 218, 6);
 }
@@ -119,7 +119,7 @@ code {
   height: auto;
 }
 .car-image { 
-  justify-self: center;
+  text-align: center;
   height: 3cm;
   width: auto;
 }

@@ -1,24 +1,25 @@
 import React, {useState} from "react";
 import UpdateCar from "./UpdateCar";
 
-function Car({car, onUpdateCar}){
+function Car({car, onUpdateCar, onDeleteCar}){
 
     const [isUpdating, setIsUpdating] = useState(false);
     
-    const {make, year, color, image, mileage, price} = car
+    const {id, make, year, color, image, mileage, price} = car
     
 
     function handleIsUpdating(updatedCar){
         setIsUpdating(false)
         onUpdateCar(updatedCar)
     }
-    // function handleDeletePosition(){
-    //     fetch(`http://localhost:9292/positions/${id}`,{
-    //         method: "DELETE",
-    //     });
 
-    //     onDeletePosition(position)
-    // }
+    function handleDeleteCar(){
+        fetch(`/cars/${id}`,{
+            method: "DELETE",
+        });
+
+        onDeleteCar(car)
+    }
 
     return (
         <div className="car-card">
@@ -45,7 +46,7 @@ function Car({car, onUpdateCar}){
                 </div>
             )}
             <button onClick={() => setIsUpdating((isUpdating) => !isUpdating)}>UPDATE</button>
-            <button >DELETE</button>
+            <button onClick={handleDeleteCar}>DELETE</button>
         </div>
     )
 }

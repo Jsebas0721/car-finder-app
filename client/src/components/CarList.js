@@ -1,10 +1,10 @@
 import React from "react";
 import Car from "./Car";
 
-function CarList({cars, onUpdateCar}){
+function CarList({cars, onUpdateCar, onDeleteCar}){
 
     const carsList = cars.map((car)=> (
-        <Car key={car.id} car={car} onUpdateCar={onUpdateCar}/>
+        <Car key={car.id} car={car} onUpdateCar={onUpdateCar} onDeleteCar={onDeleteCar}/>
     )) 
     return(
         <ul className="car-container">

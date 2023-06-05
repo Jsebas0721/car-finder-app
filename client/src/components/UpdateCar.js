@@ -33,9 +33,11 @@ function UpdateCar({car, onUpdateCar}){
             [e.target.name]: e.target.value
         });
     }
+
     return (
         <form onSubmit={handleFormSubmit}>
            <input
+            label="make:"
             type="text"
             name="make"
             value={carData.make}

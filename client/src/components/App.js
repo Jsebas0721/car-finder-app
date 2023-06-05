@@ -15,9 +15,9 @@ import { DealersContext } from "../context/dealers";
 function App() {
   
   const [cars, setCars] =useState([]);
-  const [currentDealer, setCurrentDealer] =useState([]);
-
-  const {dealers, setDealers} = useContext(DealersContext)
+  
+  console.log(cars)
+  const {dealers, setDealers, currentDealer} = useContext(DealersContext)
   const {user, stayLoggedIn} = useContext(UserContext);
 
   useEffect(() => {
@@ -35,13 +35,26 @@ function App() {
     setCars(updatedCars);
     const updatedDealers = dealers.map((dealer)=>{
       if(dealer.id === updatedCar.dealer_id){
-        return { ...dealer, cars: updatedCars}
+        return {...dealer, cars: updatedCars};
       }else{
         return dealer;
       }
     });
     setDealers(updatedDealers)
     console.log("Car Updated: ", updatedCar)
+  }
+
+  function handleDeleteCar(deletedCar){
+    const updatedCars = cars.filter((car) => car.id !== deletedCar.id)
+    setCars(updatedCars)
+    const updatedDealers = dealers.map((dealer) => {
+      if(dealer.id === deletedCar.dealer_id){
+        return {...dealer, cars: updatedCars}
+      }else{
+        return dealer;
+      }
+    })
+    setDealers(updatedDealers);
   }
 
   return (
@@ -51,10 +64,10 @@ function App() {
         {user ? (
             <Switch>
               <Route exact path="/dealers">
-                <DealerList onSetCars={setCars} onSetCurrentDealer={setCurrentDealer}/>
+                <DealerList onSetCars={setCars} />
               </Route>
               <Route exact path={`/${currentDealer.name}/cars`}>
-                <CarList cars={cars} onUpdateCar={handleUpdateCar}/>
+                <CarList cars={cars} onUpdateCar={handleUpdateCar} onDeleteCar={handleDeleteCar}/>
               </Route>
             </Switch>
           ) : (

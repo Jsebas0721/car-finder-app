@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { DealersContext } from "../context/dealers";
 
-function Dealer( { dealer, onSetCars, onSetCurrentDealer} ){
+function Dealer( { dealer, onSetCars} ){
 
     const {name, logo, location, cars} = dealer;
 
+    const {setCurrentDealer} = useContext(DealersContext)
+
+    
     function handleClick(){
-        onSetCurrentDealer(dealer)
+       
+        setCurrentDealer(dealer)
         onSetCars(cars)
     }
     

@@ -14,11 +14,21 @@ class CarsController < ApplicationController
             render json: {error: "Car not found"}, status: :not_found
         end       
     end
+    
+    def destroy
+        car = Car.find_by(id: params[:id])
+        if car
+            car.destroy
+            render :no_content
+        else
+            render json: { error: "Car not found"}, status: :not_found
+        end
+    end
 
     private
 
     def car_params
-        params.permit(:make, :year, :color, :image, :mileage, :price)
+        params.permit(:id, :make, :year, :color, :image, :mileage, :price)
     end
 
 end

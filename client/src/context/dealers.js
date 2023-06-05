@@ -5,6 +5,7 @@ const DealersContext = createContext(null);
 function DealersProvider({children}){
     
     const [dealers, setDealers]= useState([]);
+    const [currentDealer, setCurrentDealer] =useState([]);
     
     
     function getDealers(){
@@ -12,7 +13,6 @@ function DealersProvider({children}){
         .then((resp)=> resp.json())
         .then(dealers => {
             setDealers(dealers)
-            console.log(dealers) 
         })
     }
 
@@ -21,7 +21,7 @@ function DealersProvider({children}){
         console.log("Dealer Created: ", newDealer)
     }
 
-    return <DealersContext.Provider value={{dealers, setDealers, getDealers, handleAddDealer}}>{children}</DealersContext.Provider>
+    return <DealersContext.Provider value={{dealers, setDealers, getDealers, handleAddDealer, currentDealer, setCurrentDealer}}>{children}</DealersContext.Provider>
 }
 
 export { DealersContext, DealersProvider}

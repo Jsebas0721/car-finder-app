@@ -3,7 +3,7 @@ import Dealer from "./Dealer";
 import NewDealer from "./NewDealer";
 import { DealersContext } from "../context/dealers";
 
-function DealerList({onSetCars, onSetCurrentDealer}){
+function DealerList({onSetCars}){
 
     const {dealers, getDealers} = useContext(DealersContext);
 
@@ -13,7 +13,7 @@ function DealerList({onSetCars, onSetCurrentDealer}){
 
 
     const dealershipList = dealers.map((dealer)=> (
-        <Dealer key={dealer.id} dealer={dealer} onSetCars={onSetCars} onSetCurrentDealer={onSetCurrentDealer}/>
+        <Dealer key={dealer.id} dealer={dealer} onSetCars={onSetCars} />
     ))
     return (
         <ul className="dealer-container">
