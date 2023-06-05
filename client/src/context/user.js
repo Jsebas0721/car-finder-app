@@ -16,4 +16,4 @@ function UserProvider({children}){
     return <UserContext.Provider  value={ {user, setUser, stayLoggedIn} }>{children}</UserContext.Provider>
 }
 
-export { UserContext, UserProvider}
+export { UserContext, UserProvider};

@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { DealersContext } from "../context/dealers";
 
-function NewDealer({onAddDealer}) {
+function NewDealer() {
 
-    const [errors, setErrors]= useState({});
-
+    const [errors, setErrors]= useState([]);
     const [dealerData, setDealerData] = useState({
         name: "",
         logo: "",
         location: ""
     })
 
+    const {handleAddDealer} = useContext(DealersContext);
+
     function handleSubmit(e){
         e.preventDefault();
-
         fetch("/dealers", {
             method: "POST",
             headers: {
@@ -22,7 +23,7 @@ function NewDealer({onAddDealer}) {
         }).then((resp) => {
             if(resp.ok) {
                 resp.json().then((newDealer) => {
-                onAddDealer(newDealer)
+                handleAddDealer(newDealer)
                 setDealerData({
                     name: "",
                     logo: "",

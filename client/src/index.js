@@ -5,11 +5,14 @@ import App from './components/App';
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './context/user';
+import { DealersProvider } from './context/dealers';
 
 ReactDOM.render(
   <BrowserRouter>
     <UserProvider>
-      <App />
+      <DealersProvider>
+        <App />
+      </DealersProvider>
     </UserProvider>
   </BrowserRouter>,
   document.getElementById("root")

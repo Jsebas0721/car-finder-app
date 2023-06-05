@@ -8,46 +8,68 @@ import Home from "./Home";
 import DealerList from "./DealerList";
 import CarList from "./CarList";
 import { UserContext} from "../context/user";
+import { DealersContext } from "../context/dealers";
+
 
 
 function App() {
   
   const [cars, setCars] =useState([]);
   const [currentDealer, setCurrentDealer] =useState([]);
+
+  const {dealers, setDealers} = useContext(DealersContext)
   const {user, stayLoggedIn} = useContext(UserContext);
 
   useEffect(() => {
     stayLoggedIn()
   },[]);
 
+  function handleUpdateCar(updatedCar){
+    const updatedCars = cars.map((car) => {
+      if(car.id === updatedCar.id){
+        return updatedCar;
+      }else{
+        return car;
+      }
+    });
+    setCars(updatedCars);
+    const updatedDealers = dealers.map((dealer)=>{
+      if(dealer.id === updatedCar.dealer_id){
+        return { ...dealer, cars: updatedCars}
+      }else{
+        return dealer;
+      }
+    });
+    setDealers(updatedDealers)
+    console.log("Car Updated: ", updatedCar)
+  }
 
   return (
     <div className="App">
-      <Header />
-      <NavBar />
-      {user ? (
-        <Switch>
-          <Route exact path="/dealers">
-            <DealerList onSetCars={setCars} onSetCurrentDealer={setCurrentDealer}/>
-          </Route>
-          <Route exact path={`/${currentDealer.name}/cars`}>
-            <CarList cars={cars}/>
-          </Route>
-        </Switch>
-        ) : (
-        <Switch>
-          <Route exact path="/signup">
-            <SignUp/>
+        <Header />
+        <NavBar />
+        {user ? (
+            <Switch>
+              <Route exact path="/dealers">
+                <DealerList onSetCars={setCars} onSetCurrentDealer={setCurrentDealer}/>
+              </Route>
+              <Route exact path={`/${currentDealer.name}/cars`}>
+                <CarList cars={cars} onUpdateCar={handleUpdateCar}/>
+              </Route>
+            </Switch>
+          ) : (
+          <Switch>
+            <Route exact path="/signup">
+              <SignUp/>
+              <Home/>
+            </Route>
+            <Route exact path="/login">
+              <Login /> 
+              <Home/>
+            </Route>
             <Home/>
-          </Route>
-          <Route exact path="/login">
-            <Login /> 
-            <Home/>
-          </Route>
-          <Home/>
-        </Switch>
-        )}
-        
+          </Switch>
+          )}
     </div>
   );
 }

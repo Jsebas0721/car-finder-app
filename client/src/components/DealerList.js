@@ -1,25 +1,16 @@
-import React, { useEffect, useState} from "react";
+import React, { useContext, useEffect} from "react";
 import Dealer from "./Dealer";
 import NewDealer from "./NewDealer";
+import { DealersContext } from "../context/dealers";
 
 function DealerList({onSetCars, onSetCurrentDealer}){
 
-    const [dealers, setDealers]= useState([])
+    const {dealers, getDealers} = useContext(DealersContext);
 
     useEffect(()=> {
-        fetch("/dealers")
-        .then((resp)=> resp.json())
-        .then(dealers => {
-            setDealers(dealers)
-            console.log(dealers)
-           
-        })
+        getDealers();
     },[]);
 
-    function handleAddDealer(newDealer){
-        setDealers([...dealers, newDealer])
-        console.log("Dealer Created: ", newDealer)
-      }
 
     const dealershipList = dealers.map((dealer)=> (
         <Dealer key={dealer.id} dealer={dealer} onSetCars={onSetCars} onSetCurrentDealer={onSetCurrentDealer}/>
@@ -27,7 +18,7 @@ function DealerList({onSetCars, onSetCurrentDealer}){
     return (
         <ul className="dealer-container">
             <hr/>
-            <NewDealer onAddDealer={handleAddDealer}/>
+            <NewDealer />
             <h1>Dealer List:</h1>
             {dealershipList}
         </ul>

@@ -9,6 +9,7 @@ function Dealer( { dealer, onSetCars, onSetCurrentDealer} ){
         onSetCurrentDealer(dealer)
         onSetCars(cars)
     }
+    
     return (
         <NavLink
         exact to={`/${name}/cars`}

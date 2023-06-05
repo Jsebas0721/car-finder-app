@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post "/dealers", to: "dealers#create"
   
   #cars routes
-  get "/cars", to: "cars#index"
+  resources :cars, only: [:index, :create, :update, :destroy]
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

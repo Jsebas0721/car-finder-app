@@ -1,15 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../context/user";
 
-function Login() {
 
-  const { setUser } = useContext(UserContext);
+function Login() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError]= useState({});
-  console.log(error)
+  
+  const { setUser } = useContext(UserContext);
+  
   const history = useHistory(); 
 
   function handleSubmit(e) {
@@ -27,8 +28,7 @@ function Login() {
           history.push("/dealers");
         });    
       }else{
-        resp.json().then((errorData) => setError(errorData.error))
-        
+        resp.json().then((errorData) => setError(errorData.error)); 
       }
     });
   }
