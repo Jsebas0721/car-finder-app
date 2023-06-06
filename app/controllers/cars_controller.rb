@@ -1,8 +1,19 @@
 class CarsController < ApplicationController
-    skip_before_action :authorized
+    skip_before_action :authorized, only: [:index]
     def index
         cars = Car.all 
         render json: cars
+    end
+
+
+    def create
+        car = Car.create(car_params)
+        byebug
+        if car.valid?
+            render json: car, status: :created
+        else
+            render json: { errors: car.errors.full_messages}, status: :unprocessable_entity
+        end
     end
 
     def update
@@ -28,7 +39,7 @@ class CarsController < ApplicationController
     private
 
     def car_params
-        params.permit(:id, :make, :year, :color, :image, :mileage, :price)
+        params.permit(:id, :make, :year, :color, :image, :mileage, :price, :dealer_id, :user_id)
     end
 
 end

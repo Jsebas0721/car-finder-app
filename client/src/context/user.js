@@ -5,6 +5,7 @@ const UserContext = createContext(null);
 function UserProvider({children}){
     const [user, setUser] = useState(null);
 
+
     function stayLoggedIn(){
         fetch("/me").then((response) => {
             if (response.ok) {

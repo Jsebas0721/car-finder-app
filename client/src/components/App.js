@@ -24,38 +24,6 @@ function App() {
     stayLoggedIn()
   },[]);
 
-  function handleUpdateCar(updatedCar){
-    const updatedCars = cars.map((car) => {
-      if(car.id === updatedCar.id){
-        return updatedCar;
-      }else{
-        return car;
-      }
-    });
-    setCars(updatedCars);
-    const updatedDealers = dealers.map((dealer)=>{
-      if(dealer.id === updatedCar.dealer_id){
-        return {...dealer, cars: updatedCars};
-      }else{
-        return dealer;
-      }
-    });
-    setDealers(updatedDealers)
-    console.log("Car Updated: ", updatedCar)
-  }
-
-  function handleDeleteCar(deletedCar){
-    const updatedCars = cars.filter((car) => car.id !== deletedCar.id)
-    setCars(updatedCars)
-    const updatedDealers = dealers.map((dealer) => {
-      if(dealer.id === deletedCar.dealer_id){
-        return {...dealer, cars: updatedCars}
-      }else{
-        return dealer;
-      }
-    })
-    setDealers(updatedDealers);
-  }
 
   return (
     <div className="App">
@@ -67,7 +35,7 @@ function App() {
                 <DealerList onSetCars={setCars} />
               </Route>
               <Route exact path={`/${currentDealer.name}/cars`}>
-                <CarList cars={cars} onUpdateCar={handleUpdateCar} onDeleteCar={handleDeleteCar}/>
+                <CarList cars={cars} setCars={setCars} />
               </Route>
             </Switch>
           ) : (
