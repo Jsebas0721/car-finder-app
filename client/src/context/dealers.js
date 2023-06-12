@@ -1,12 +1,13 @@
 import React, { createContext, useState } from "react";
 
+
+
 const DealersContext = createContext(null);
 
 function DealersProvider({children}){
     
     const [dealers, setDealers]= useState([]);
     const [currentDealer, setCurrentDealer] =useState([]);
-    
     
     function getDealers(){
         fetch("/dealers")

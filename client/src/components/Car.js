@@ -1,32 +1,44 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import UpdateCar from "./UpdateCar";
+import { UserContext } from "../context/user";
+import { DealersContext } from "../context/dealers";
+import { CarsContext } from "../context/cars";
 
-function Car({car, onUpdateCar, onDeleteCar}){
+function Car({car}){
 
     const [isUpdating, setIsUpdating] = useState(false);
-    
+
+    const {user} = useContext(UserContext);
+    const {currentDealer} = useContext(DealersContext)
+    const {handleDeleteCar} = useContext(CarsContext);
+
     const {id, make, year, color, image, mileage, price} = car
+
+
+ 
     
 
-    function handleIsUpdating(updatedCar){
-        setIsUpdating(false)
-        onUpdateCar(updatedCar)
-    }
+    // function handleIsUpdating(updatedCar){
+    //     setIsUpdating(false)
+    //     handleUpdateCar(updatedCar)
+    // }
 
-    function handleDeleteCar(){
+    function handleDelete(){
         fetch(`/cars/${id}`,{
             method: "DELETE",
         });
 
-        onDeleteCar(car)
+       handleDeleteCar(car)
     }
 
+    const carOwner = currentDealer.users ? currentDealer.users.find((user)=> user.id === car.user_id) : user
+   
     return (
         <div className="car-card">
             {isUpdating ? (
                 <UpdateCar
                   car={car}
-                  onUpdateCar={handleIsUpdating}
+                  setIsUpdating={setIsUpdating}
                 /> 
             ) : (
                 <div>
@@ -45,8 +57,11 @@ function Car({car, onUpdateCar, onDeleteCar}){
                     </div> 
                 </div>
             )}
-            <button onClick={() => setIsUpdating((isUpdating) => !isUpdating)}>UPDATE</button>
-            <button onClick={handleDeleteCar}>DELETE</button>
+            {user && user.id === car.user_id ? (<>
+                <button onClick={() => setIsUpdating((isUpdating) => !isUpdating)}>UPDATE</button>
+                <button onClick={handleDelete}>DELETE</button>
+            </>) : null}
+            <p className="car-owner">Listed By: {carOwner.username}</p>
         </div>
     )
 }

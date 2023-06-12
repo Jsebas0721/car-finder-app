@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { CarsContext } from "../context/cars";
 
-function UpdateCar({car, onUpdateCar}){
+function UpdateCar({car, setIsUpdating}){
     
     const {id, make, year, color, image, mileage, price} = car
 
@@ -14,6 +15,8 @@ function UpdateCar({car, onUpdateCar}){
         price: price
     })
 
+    const {handleUpdateCar}= useContext(CarsContext);
+
     function handleFormSubmit(e){
         e.preventDefault();
         fetch(`/cars/${id}`,{
@@ -24,7 +27,10 @@ function UpdateCar({car, onUpdateCar}){
             body: JSON.stringify(carData),
         })
         .then((resp) => resp.json())
-        .then((updatedCar) => onUpdateCar(updatedCar))
+        .then((updatedCar) => {
+            setIsUpdating(false);
+            handleUpdateCar(updatedCar);
+        })
     }
 
     function handleChange(e){
@@ -35,7 +41,8 @@ function UpdateCar({car, onUpdateCar}){
     }
 
     return (
-        <form onSubmit={handleFormSubmit}>
+        <form className="update-car-form" onSubmit={handleFormSubmit}>
+           <label>Make: </label>
            <input
             label="make:"
             type="text"
@@ -43,30 +50,35 @@ function UpdateCar({car, onUpdateCar}){
             value={carData.make}
             onChange={handleChange}
             />
+            <label>Year: </label>
             <input
             type="number"
             name="year"
             value={carData.year}
             onChange={handleChange}
             />
+            <label>Color: </label>
             <input
             type="text"
             name="color"
             value={carData.color}
             onChange={handleChange}
             />
+            <label>Image: </label>
             <input
             type="text"
             name="image"
             value={carData.image}
             onChange={handleChange}
             />
+            <label>MIleage: </label>
             <input
             type="number"
             name="mileage"
             value={carData.mileage}
             onChange={handleChange}
             />
+            <label>Price: </label>
             <input
             type="number"
             name="price"

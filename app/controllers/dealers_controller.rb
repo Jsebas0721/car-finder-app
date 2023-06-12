@@ -1,6 +1,6 @@
 class DealersController < ApplicationController
 
-    skip_before_action :authorized, only: [:index] 
+    
     def index
         dealers = Dealer.all 
         render json: dealers

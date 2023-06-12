@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { Switch, Route } from 'react-router-dom';
 import SignUp from "./SignUp";
 import NavBar from "./NavBar";
@@ -9,19 +9,24 @@ import DealerList from "./DealerList";
 import CarList from "./CarList";
 import { UserContext} from "../context/user";
 import { DealersContext } from "../context/dealers";
+import NewDealer from "./NewDealer";
+import NewCar from "./NewCar";
+;
 
 
 
 function App() {
   
-  const [cars, setCars] =useState([]);
+  // const [cars, setCars] =useState([]);
   
-  console.log(cars)
-  const {dealers, setDealers, currentDealer} = useContext(DealersContext)
   const {user, stayLoggedIn} = useContext(UserContext);
+  const {currentDealer} = useContext(DealersContext);
+
+  
 
   useEffect(() => {
     stayLoggedIn()
+    
   },[]);
 
 
@@ -32,10 +37,18 @@ function App() {
         {user ? (
             <Switch>
               <Route exact path="/dealers">
-                <DealerList onSetCars={setCars} />
+                <DealerList />
               </Route>
-              <Route exact path={`/${currentDealer.name}/cars`}>
-                <CarList cars={cars} setCars={setCars} />
+              <Route exact path={`/dealers/${currentDealer.id}/cars`}>
+                <CarList />
+              </Route>
+              <Route exact path="/dealers/new">
+                <hr/>
+                <NewDealer/>
+              </Route>
+              <Route exact path={`/dealers/${currentDealer.id}/cars/new`}>
+                <hr/>
+                <NewCar/>
               </Route>
             </Switch>
           ) : (

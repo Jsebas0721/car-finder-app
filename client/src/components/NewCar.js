@@ -1,9 +1,11 @@
 import React, { useState,useContext } from "react";
 import { DealersContext } from "../context/dealers";
 import { UserContext } from "../context/user";
+import { CarsContext } from "../context/cars";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
-function NewCar({onAddNewCar}) {
+function NewCar() {
 
     const [errors, setErrors]= useState([]);
     const [carData, setCarData] = useState({
@@ -16,8 +18,10 @@ function NewCar({onAddNewCar}) {
     })
 
     const{user} = useContext(UserContext)
-    console.log(user)
     const {currentDealer} =useContext(DealersContext);
+    const {handleAddNewCar} = useContext(CarsContext)
+
+    const history = useHistory();
 
     function handleSubmit(e){
         e.preventDefault();
@@ -34,7 +38,7 @@ function NewCar({onAddNewCar}) {
         }).then((resp) => {
             if(resp.ok) {
                 resp.json().then((newCar) => {
-                onAddNewCar(newCar)
+                handleAddNewCar(newCar)
                 setCarData({
                     make: "",
                     year: "",
@@ -43,11 +47,11 @@ function NewCar({onAddNewCar}) {
                     mileage: "",
                     price: ""
                 });
-                });
+                history.push(`/dealers/${currentDealer.id}/cars`)
+            });
             }else{
                resp.json().then((errorData) => setErrors(errorData.errors)); 
             }
-
         });
     }
 
@@ -59,8 +63,9 @@ function NewCar({onAddNewCar}) {
     }
 
     return (
-        <form className="new-dealer-form" onSubmit={handleSubmit}>
-            <span>Add New Car: </span>
+        <form className="new-car-form" onSubmit={handleSubmit}>
+            <h2>NEW CAR FORM:</h2>
+            <label>Make: </label>
             <input
             type="text"
             name="make"
@@ -68,6 +73,7 @@ function NewCar({onAddNewCar}) {
             value={carData.make}
             onChange={handleChange}
             />
+            <label>Year: </label>
             <input
             type="number"
             name="year"
@@ -75,6 +81,7 @@ function NewCar({onAddNewCar}) {
             value={carData.year}
             onChange={handleChange}
             />
+            <label>Color: </label>
             <input
             type="text"
             name="color"
@@ -82,13 +89,15 @@ function NewCar({onAddNewCar}) {
             value={carData.color}
             onChange={handleChange}
             />
-              <input
+            <label>Image: </label>
+            <input
             type="text"
             name="image"
             placeholder="Enter Image URL.."
             value={carData.image}
             onChange={handleChange}
             />
+            <label>Mileage: </label>
             <input
             type="number"
             name="mileage"
@@ -96,13 +105,14 @@ function NewCar({onAddNewCar}) {
             value={carData.mileage}
             onChange={handleChange}
             />
-             <input
+            <label>Price: </label>
+            <input
             type="number"
             name="price"
             placeholder="Enter Price.."
             value={carData.price}
             onChange={handleChange}
-            />
+            /><br/>
             {errors.length > 0 && (
                 <ul style={{ color: "red" }}>
                     {errors.map((error) => (

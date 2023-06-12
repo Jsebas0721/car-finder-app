@@ -1,25 +1,29 @@
 import React, { useContext, useEffect} from "react";
 import Dealer from "./Dealer";
-import NewDealer from "./NewDealer";
 import { DealersContext } from "../context/dealers";
+import { CarsContext } from "../context/cars";
 
-function DealerList({onSetCars}){
+
+function DealerList(){
 
     const {dealers, getDealers} = useContext(DealersContext);
-
+    const {setCars} = useContext(CarsContext);
+    
+    
     useEffect(()=> {
         getDealers();
+        setCars(null)
     },[]);
 
+    
 
     const dealershipList = dealers.map((dealer)=> (
-        <Dealer key={dealer.id} dealer={dealer} onSetCars={onSetCars} />
+        <Dealer key={dealer.id} dealer={dealer} />
     ))
     return (
         <ul className="dealer-container">
             <hr/>
-            <NewDealer />
-            <h1>Dealer List:</h1>
+            <h1>DEALERS:</h1>
             {dealershipList}
         </ul>
     )

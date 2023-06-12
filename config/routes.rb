@@ -10,10 +10,13 @@ Rails.application.routes.draw do
   #users routes
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
+  get "/users", to: "users#index"
   
   #dealers routes
   get "/dealers", to: "dealers#index"
+  # get "/dealers/id/car
   post "/dealers", to: "dealers#create"
+
   
   #cars routes
   resources :cars, only: [:index, :create, :update, :destroy]

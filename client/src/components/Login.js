@@ -34,10 +34,9 @@ function Login() {
   }
 
   return (
-    <div className="login">
-      <form onSubmit={handleSubmit}>
+      <form className="login" onSubmit={handleSubmit}>
         <h1>Login</h1>
-        <label htmlFor="username">Username</label>
+        <label>Username: </label>
         <input
           type="text"
           id="username"
@@ -45,14 +44,14 @@ function Login() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label htmlFor="password">Password</label>
+        <label>Password: </label>
         <input
           type="password"
           id="password"
           autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        />
+        /><br/>
         {error.length > 0 && (
           <ul style={{ color: "red" }}>
             <li key={error}>{error}</li>
@@ -60,7 +59,6 @@ function Login() {
         )}
         <button type="submit">Login</button>
       </form>
-    </div>
   );
 }
 

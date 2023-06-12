@@ -1,23 +1,23 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { DealersContext } from "../context/dealers";
+import { CarsContext } from "../context/cars";
 
-function Dealer( { dealer, onSetCars} ){
+function Dealer( { dealer } ){
 
-    const {name, logo, location, cars} = dealer;
+    const {id,name, logo, location, cars} = dealer;
 
     const {setCurrentDealer} = useContext(DealersContext)
+    const {setCars}= useContext(CarsContext);
 
-    
-    function handleClick(){
-       
+    function handleClick(){ 
         setCurrentDealer(dealer)
-        onSetCars(cars)
+        setCars(cars)
     }
     
     return (
         <NavLink
-        exact to={`/${name}/cars`}
+        exact to={`/dealers/${id}/cars`}
         onClick={handleClick}
         >
             <div className="dealer-card">

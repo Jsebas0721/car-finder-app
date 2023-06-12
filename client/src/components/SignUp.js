@@ -38,10 +38,9 @@ function SignUp() {
   }
 
   return (
-    <div className="signup">
-      <form onSubmit={handleSubmit}>
+      <form className="signup" onSubmit={handleSubmit}>
         <h1>Sign Up</h1>
-        <label htmlFor="username">Username</label>
+        <label>Username:</label>
         <input
           type="text"
           id="username"
@@ -49,7 +48,7 @@ function SignUp() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label htmlFor="password">Password</label>
+        <label>Password:</label>
         <input
           type="password"
           id="password"
@@ -57,14 +56,14 @@ function SignUp() {
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="current-password"
         />
-        <label htmlFor="password">Password Confirmation</label>
+        <label>Password Confirmation:</label>
         <input
           type="password"
           id="password_confirmation"
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
-        />
+        /><br/>
         {errors.length > 0 && (
           <ul style={{ color: "red" }}>
             {errors.map((error) => (
@@ -74,7 +73,6 @@ function SignUp() {
         )}
         <button type="submit">Sign Up</button>
       </form>
-    </div>
   );
 }
 

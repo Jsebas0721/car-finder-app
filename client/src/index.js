@@ -6,12 +6,15 @@ import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './context/user';
 import { DealersProvider } from './context/dealers';
+import { CarsProvider } from './context/cars';
 
 ReactDOM.render(
   <BrowserRouter>
     <UserProvider>
       <DealersProvider>
-        <App />
+        <CarsProvider>
+          <App />
+        </CarsProvider>
       </DealersProvider>
     </UserProvider>
   </BrowserRouter>,

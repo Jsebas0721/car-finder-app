@@ -45,26 +45,49 @@ code {
   background-color: black;
   border:1px; 
   padding:1px;
+  
 }
 
 .nav-bar h3 {
+  text-align: right;
   color:  rgb(241, 218, 6);
   text-shadow: 5px 5px 10px  rgb(241, 218, 6);
 }
 
+.dealers-link, .cars-link {
+  text-align: center;
+}
+
 .buttons-logs {
- text-align: right;
+  text-align: right;
  word-spacing: 5px;
  margin: 0 10px 10px;
  
 }
 
-.login, .signup, .new-dealer-form {
+.login, .signup {
   background-color: black;
-  color: beige;
-  border:1px; 
-  padding:1px;
+  color: white;
+  width: 220px;
+  margin: 0 auto;
+  padding: 0 1rem 1rem;
+  display: flex;
+  flex-direction: column;
 }
+
+.login, .signup h1 {
+  text-align: center; 
+}
+
+.new-dealer-form, .new-car-form {
+  color: white;
+  width: 300px;
+  margin: 0 auto;
+  padding: 0 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
 
 .dealer-container { 
   color:white;
@@ -102,7 +125,7 @@ code {
   border: white solid 1px;
   padding: 1rem;
   width: 7cm;
-  height: 8cm;
+  height: auto;
   display: inline-block;
   margin: 1rem 2rem;
   box-shadow: 3px 4px 20px rgb(241, 218, 6);
@@ -126,6 +149,22 @@ code {
 
 .car-info{
  text-align: left;
+}
+
+.update-car-form {
+  color: white;
+  width: 200px;
+  margin: 0 auto;
+  padding: 0 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-owner {
+  font-weight:bold;
+  font-size: smaller;
+  text-align: right;
+  color:rgb(241, 218, 6);
 }
 
 
