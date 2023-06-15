@@ -7,6 +7,10 @@ class ApplicationController < ActionController::API
     return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
   end
 
+  def permitted
+    return render json: { error: "You are logged in, Please Log out first!" },  status: :unauthorized if session.include? :user_id
+  end
+
   
   def current_user
     User.find_by_id(session[:user_id])

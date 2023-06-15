@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
 
-    skip_before_action :authorized, only: [:index,:create]
-
+    skip_before_action :authorized, only: [:create]
+    before_action :permitted, only: [:create]
     def index
         users = User.all 
         render json: users
     end
 
     def show
-        render json: current_user,  status: 200
+        render json: current_user
     end
     
     def create
@@ -19,8 +19,9 @@ class UsersController < ApplicationController
         else
             render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
-
     end
+
+    
     private
 
     def user_params

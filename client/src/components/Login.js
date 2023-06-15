@@ -9,10 +9,11 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError]= useState({});
   
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   
   const history = useHistory(); 
 
+  
   function handleSubmit(e) {
     e.preventDefault();
     fetch("/login", {
@@ -32,6 +33,7 @@ function Login() {
       }
     });
   }
+
 
   return (
       <form className="login" onSubmit={handleSubmit}>

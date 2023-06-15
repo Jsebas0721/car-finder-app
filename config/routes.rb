@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   
   #dealers routes
   get "/dealers", to: "dealers#index"
-  # get "/dealers/id/car
   post "/dealers", to: "dealers#create"
 
   
