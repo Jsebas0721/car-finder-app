@@ -28,9 +28,9 @@ $ git clone paste-repo-URL
 $ rails s
 ``` 
 7. Start the Apllication:
-   1. Open a new terminal in your machine 
-   2. Navigate to the Repository folder using the **cd** command.
-   3. Run the following command:
+    1. Open a new terminal in your machine 
+    2. Navigate to the Repository folder using the **cd** command.
+    3. Run the following command:
 ```
 $ npm start --prefix client
 ```
