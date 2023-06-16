@@ -32,7 +32,7 @@ $ rails s
     2. Navigate to the Repository folder using the **cd** command.
     3. Run the following command:
     ```
-$ npm start --prefix client
-```
+    $ npm start --prefix client
+    ```
 
 
