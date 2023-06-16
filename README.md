@@ -22,12 +22,16 @@ cd ~/folder-path
 ```
 $ git clone paste-repo-URL
 ```
-5. Navigate to the Repository folder using the **cd** command. 
-6. Start the server by running the following command:
+5. Navigate to the Repository folder using the **cd** command.
+6. Start Postgresql database service by entering the following command:
+```
+$ sudo service postgresql start
+``` 
+7. Start the server by running the following command:
 ```
 $ rails s
 ``` 
-7. Start the Apllication:
+8. Start the Apllication:
     1. Open a new terminal in your machine 
     2. Navigate to the Repository folder using the **cd** command.
     3. Run the following command:
