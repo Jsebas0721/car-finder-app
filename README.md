@@ -28,7 +28,8 @@ $ git clone paste-repo-URL
 $ rails s
 ``` 
 7. Start the Apllication:
-   7.1 Open a new terminal in your machine 
+
+   1. Open a new terminal in your machine 
 -Navigate to the Repository folder using the **cd** command.
 -Run the following command:
 ```
