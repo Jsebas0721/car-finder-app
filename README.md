@@ -11,9 +11,9 @@ the user has the capability of creating/opening new dealerships as well as creat
 
 1.  Open up Car Finder App [GitHub Repository](https://github.com/Jsebas0721/car-finder-app) in your Web Browser.
 2.  Fork and Clone both Repository to your machine:
-    -Click on the green button Code(Located in the top right of the Repository)
-    -Make sure the SSH tab is selected
-    -Copy the URL link of the Repository
+    1. Click on the green button Code(Located in the top right of the Repository)
+    2. Make sure the SSH tab is selected
+    3. Copy the URL link of the Repository
 3. Open up your local machine terminal and navigate to the directory where you want to clone the Repository
 ```bash
 cd ~/folder-path
