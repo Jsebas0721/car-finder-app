@@ -16,12 +16,6 @@ function Car({car}){
 
 
  
-    
-
-    // function handleIsUpdating(updatedCar){
-    //     setIsUpdating(false)
-    //     handleUpdateCar(updatedCar)
-    // }
 
     function handleDelete(){
         fetch(`/cars/${id}`,{
