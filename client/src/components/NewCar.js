@@ -21,7 +21,6 @@ function NewCar() {
     const {currentDealer} =useContext(DealersContext);
     const {handleAddNewCar} = useContext(CarsContext)
 
-    const history = useHistory();
 
     function handleSubmit(e){
         e.preventDefault();
@@ -47,7 +46,7 @@ function NewCar() {
                     mileage: "",
                     price: ""
                 });
-                history.push(`/dealers/${currentDealer.id}/cars`)
+                
             });
             }else{
                resp.json().then((errorData) => setErrors(errorData.errors)); 

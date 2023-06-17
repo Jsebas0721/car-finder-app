@@ -31,7 +31,7 @@ function Car({car}){
        handleDeleteCar(car)
     }
 
-    const carOwner = currentDealer.users ? currentDealer.users.find((user)=> user.id === car.user_id) : user
+    const carOwner = currentDealer.users  ? currentDealer.users.find((user)=> user.id === car.user_id) : user
    
     return (
         <div className="car-card">
