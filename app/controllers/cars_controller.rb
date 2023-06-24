@@ -7,7 +7,8 @@ class CarsController < ApplicationController
 
 
     def create
-        car = Car.create(car_params)
+        car = current_user.cars.create(car_params)
+        byebug
         if car.valid?
             render json: car, status: :created
         else
@@ -46,7 +47,7 @@ class CarsController < ApplicationController
     private
 
     def car_params
-        params.permit(:id, :make, :year, :color, :image, :mileage, :price, :dealer_id, :user_id)
+        params.permit(:id, :make, :year, :color, :image, :mileage, :price, :dealer_id)
     end
 
    

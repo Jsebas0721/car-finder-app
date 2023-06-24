@@ -1,8 +1,6 @@
 import React, { useState,useContext } from "react";
 import { DealersContext } from "../context/dealers";
-import { UserContext } from "../context/user";
 import { CarsContext } from "../context/cars";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 function NewCar() {
@@ -17,7 +15,6 @@ function NewCar() {
         price: ""
     })
 
-    const{user} = useContext(UserContext)
     const {currentDealer} =useContext(DealersContext);
     const {handleAddNewCar} = useContext(CarsContext)
 
@@ -31,12 +28,12 @@ function NewCar() {
             },
             body: JSON.stringify({
                 ...carData,
-                user_id: user.id,
                 dealer_id: currentDealer.id
             })
         }).then((resp) => {
             if(resp.ok) {
                 resp.json().then((newCar) => {
+                console.log(newCar)
                 handleAddNewCar(newCar)
                 setCarData({
                     make: "",
