@@ -8,7 +8,7 @@ class CarsController < ApplicationController
 
     def create
         car = current_user.cars.create(car_params)
-        byebug
+        
         if car.valid?
             render json: car, status: :created
         else
